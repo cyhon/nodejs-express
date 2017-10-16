@@ -1,0 +1,14 @@
+#publish:
+#    docker:
+#        repo: gluon/auth-center
+#        file: Dockerfile
+#        when:
+#            branch: master
+#            event: [push, pull_request]
+#publish:
+#    docker:
+#        repo: geekthings/auth-center
+#        file: Dockerfile
+#        when:
+#            branch: master
+#            event: [push, pull_request]

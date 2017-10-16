@@ -1,0 +1,63 @@
+{
+  "name": "AuthCenter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node --harmony_object_rest_spread bootstrap.js",
+    "resolve": "cnpm i --registry=https://npm.finogeeks.club",
+    "lint": "./node_modules/.bin/eslint *.js",
+    "test": "mocha --timeout 10000",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "start": "**/*.js",
+    "test": "**/*.js"
+  },
+  "dependencies": {
+    "bluebird": "^2.3.4",
+    "body-parser": "^1.8.1",
+    "compression": "^1.6.2",
+    "debug": "^2.2.0",
+    "ejs": "^0.8.5",
+    "express": "^4.9.0",
+    "express-session": "^1.9.0",
+    "express-validator": "^3.2.0",
+    "ioredis": "^1.15.1",
+    "isomorphic-fetch": "2.2.1",
+    "jsonwebtoken": "^8.0.1",
+    "lodash": "^4.17.4",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.8.3",
+    "mongoose": "4.10.8",
+    "morgan": "^1.3.0",
+    "newrelic": "^1.34.0",
+    "node-client": "^0.1.10",
+    "node-schedule": "^0.6.0",
+    "pidusage": "^1.0.1",
+    "qs": "^2.3.3",
+    "random-js": "^1.0.4",
+    "redis": "^1.0.0",
+    "serve-favicon": "^2.1.3",
+    "ssha": "^1.0.1",
+    "statsd-client": "^0.2.1",
+    "superagent": "^1.4.0",
+    "ua-parser-js": "^0.7.10",
+    "underscore": "^1.8.3",
+    "uuid": "^3.0.1",
+    "winston": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0",
+    "npm-watch": "^0.1.7"
+  }
+}

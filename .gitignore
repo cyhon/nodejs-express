@@ -1,0 +1,15 @@
+*.tar.gz
+*.iml
+.DS_Store
+dist/**
+static
+node_modules/
+bower_components/
+*.log
+.idea/
+npm-debug.log*
+
+
+.env
+
+test-dev/
