@@ -25,7 +25,7 @@ function getLogger(name) {
 
     function formatter(info) {
         const traceId = cls.getNamespace('x-trace-id').get('traceId') || '';
-        return `[${getTimestamp()} ${info.level} ${name} ${traceId}] ${info.message || JSON.stringify(info.meta)} `;
+        return `[${getTimestamp()} ${info.level} ${name}] ${traceId} - ${info.message || JSON.stringify(info.meta)}`;
     }
 }
 
