@@ -51,12 +51,7 @@ app.use(expressValidator({
 // utils.info('PRODUCTION: %s', config.PRODUCTION);
 // app.use('/console', express.static(path.join(__dirname, 'auth-center-statistics-console')));
 
-const apiRouter = express.Router();
-app.use('/api/v1/your_service_path', apiRouter);
-
-const api = require('./routes/api');
-
-apiRouter.use(api.auth); // FIXME DEMO
+app.use('/api/v1', require('./routes'));
 
 // catch 404 and forward to error handler
 app.use(({url}, res, next) => {

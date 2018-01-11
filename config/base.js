@@ -6,9 +6,9 @@ module.exports.LOG_DIR = null;
 
 module.exports.HTTP_PORT = 3000;
 
-module.exports.REDIS_HOST = '127.0.0.1';
-module.exports.REDIS_PORT = 6379;
-module.exports.REDIS_OPTIONS = null;
+// module.exports.REDIS_HOST = '127.0.0.1';
+// module.exports.REDIS_PORT = 6379;
+// module.exports.REDIS_OPTIONS = null;
 
 // MongoDB settings.
 module.exports.MONGO_DB_CONNECTION_STRING = process.env.MONGO_URL || 'mongodb://db-user:db-user-pwd@localhost:27017/your_db_name';
