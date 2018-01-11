@@ -1,3 +1,5 @@
+const os = require('os');
+
 // Production flag, this will be used to toggle logging, error trace, etc.
 module.exports.PRODUCTION = false;
 
@@ -5,6 +7,8 @@ module.exports.PRODUCTION = false;
 module.exports.LOG_DIR = null;
 
 module.exports.HTTP_PORT = 3000;
+
+module.exports.SERVICE_NAME = os.hostname();
 
 // module.exports.REDIS_HOST = '127.0.0.1';
 // module.exports.REDIS_PORT = 6379;

@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const monitor = require('node-client');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -8,17 +7,12 @@ const qs = require('qs');
 const compression = require('compression');
 const utils = require('./utils');
 const expressValidator = require('express-validator');
-
-const config = utils.config;
+const error = require('./spec/error');
 
 const app = express();
 app.use(compression());
 
 monitor.Instrument(app);
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 
 app.set('query parser', s => qs.parse(s, { depth: 10 }));
 
@@ -48,42 +42,18 @@ app.use(expressValidator({
 // app.use(cors());
 // app.options('*', cors());
 
-// utils.info('PRODUCTION: %s', config.PRODUCTION);
-// app.use('/console', express.static(path.join(__dirname, 'auth-center-statistics-console')));
-
 app.use('/api/v1', require('./routes'));
 
 // catch 404 and forward to error handler
 app.use(({url}, res, next) => {
-    utils.error('Url cannot be resolved: %s', url);
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    res.status(404).json(error.FC_NOT_FOUND);
 });
 
 // log errors
 app.use(utils.logExpressError);
 
-// development error handler
-// will print stacktrace
-if (!config.PRODUCTION) {
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err,
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
 app.use(({status, message}, req, res, next) => {
-  res.status(status || 500);
-  res.render('error', {
-    message,
-    error: {}
-  });
+    res.status(500).json(error.FC_ERROR);
 });
 
 module.exports = app;
