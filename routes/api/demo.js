@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const error = require('../../spec/error');
+const logger = require('../../utils').getLogger('demo');
 
 router.get('/hello', async (request, response) => {
+    logger.info('hello, world');
     response.send({msg: "hello, world!"})
 });
 

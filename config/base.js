@@ -4,7 +4,7 @@ const os = require('os');
 module.exports.PRODUCTION = false;
 
 // Setting this to null will output logs to the log folder of current application.
-module.exports.LOG_DIR = null;
+module.exports.LOG_LEVEL = process.env.LOG_LEVEL || 'info';
 
 module.exports.HTTP_PORT = 3000;
 
