@@ -8,6 +8,8 @@ module.exports = function (req, res, next) {
     traceRequest.run(() => {
         const traceId = req.header(TRACE_ID) || uuid();
         res.setHeader(TRACE_ID, traceId);
+        req.traceId = traceId;
+
         traceRequest.set('traceId', traceId);
         next();
     });
