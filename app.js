@@ -38,9 +38,12 @@ app.use(expressValidator({
     }
 }));
 
-// // Enabling CORS
+// Enabling CORS
 // app.use(cors());
 // app.options('*', cors());
+
+// Enable Tracer
+app.use(require('./midware/tracer'));
 
 app.use('/api/v1', require('./routes'));
 
