@@ -1,5 +1,5 @@
 const uuid = require('uuid/v4');
-const cls = require('continuation-local-storage');
+const cls = require('cls-hooked');
 
 const TRACE_ID = 'x-trace-id';
 const traceRequest = cls.createNamespace(TRACE_ID);

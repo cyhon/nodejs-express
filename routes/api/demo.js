@@ -4,7 +4,9 @@ const error = require('../../spec/error');
 const logger = require('../../utils').getLogger('demo');
 
 router.get('/hello', async (request, response) => {
-    logger.info(`traceId: ${request.traceId}`);
+    logger.info('before async await...');
+    await new Promise(resolve => { setTimeout(resolve, 1) });
+    logger.info('after async await...');
     response.send({msg: "hello, world!"})
 });
 
