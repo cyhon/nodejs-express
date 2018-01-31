@@ -2,7 +2,7 @@
 
 const winston = require('winston');
 const config = require('../config/base');
-const cls = require('continuation-local-storage');
+const cls = require('cls-hooked');
 
 function getTimestamp() {
     return new Date().toISOString().replace('T', ' ').replace('Z', '')
